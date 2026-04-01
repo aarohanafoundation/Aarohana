@@ -234,7 +234,6 @@
               <li><a href="join.html#internship">Internship</a></li>
               <li><a href="join.html#membership">Membership Opportunity</a></li>
               <li><a href="join.html#partnership">Partnership</a></li>
-              <li><a href="join.html#newsletter">Newsletter</a></li>
             </ul>
           </li>
           <li><a href="donate.html" class="nav-cta">Donate Now</a></li>
@@ -417,50 +416,7 @@
     </div>
   </section>
 
-  <!-- Newsletter Section -->
-  <section id="newsletter" class="join-section section-newsletter">
-    <div class="section-container">
-      <div class="section-image">
-        <img
-          src="assets/images/joinUs/newsletter.jpg"
-          alt="Newsletter Subscription">
-      </div>
-      <div class="section-content">
-        <div class="section-icon">
-          <i class="fas fa-newspaper"></i>
-        </div>
-        <h2 class="section-heading">Newsletter Subscription</h2>
-        <h3>Stay Informed</h3>
-        <p>Subscribe to our newsletter to receive updates on our projects, impact stories, and opportunities to get
-          involved.</p>
 
-        <div class="features-list">
-          <div class="feature-item">
-            <i class="fas fa-check-circle"></i>
-            <span>Monthly updates on our projects and initiatives</span>
-          </div>
-          <div class="feature-item">
-            <i class="fas fa-check-circle"></i>
-            <span>Impact stories and beneficiary testimonials</span>
-          </div>
-          <div class="feature-item">
-            <i class="fas fa-check-circle"></i>
-            <span>Invitations to events and volunteer opportunities</span>
-          </div>
-          <div class="feature-item">
-            <i class="fas fa-check-circle"></i>
-            <span>Exclusive content and behind-the-scenes looks</span>
-          </div>
-        </div>
-
-        <div class="cta-button">
-          <button class="btn btn-primary" onclick="openModal('newsletter')">
-            <i class="fas fa-envelope"></i> Subscribe Now
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Footer -->
   <footer>
@@ -649,32 +605,7 @@
     </div>
   </div>
 
-  <div id="newsletter-modal" class="modal">
-    <div class="modal-content">
-      <button class="close-modal" onclick="closeModal('newsletter')">&times;</button>
-      <h2 class="modal-title">Newsletter Subscription</h2>
-      <p>Subscribe to our newsletter to stay updated with our latest projects, impact stories, events, and volunteer
-        opportunities.</p>
 
-      <p>Our newsletter is sent monthly and includes:</p>
-      <ul>
-        <li>Updates on ongoing projects and initiatives</li>
-        <li>Impact stories and beneficiary testimonials</li>
-        <li>Upcoming events and volunteer opportunities</li>
-        <li>Behind-the-scenes looks at our work</li>
-        <li>Ways to get involved and support our mission</li>
-      </ul>
-
-      <div class="redirect-button">
-        <button class="btn btn-primary" onclick="redirectToGoogleForm('newsletter')">
-          <i class="fas fa-external-link-alt"></i> Open Subscription Form
-        </button>
-        <p style="margin-top: 15px; color: #666; font-size: 0.9rem;">
-          You'll be redirected to our Google Form to subscribe to our newsletter.
-        </p>
-      </div>
-    </div>
-  </div>
 
   <!-- Success Message -->
   <div id="success-message" class="success-message">
@@ -691,8 +622,7 @@
 const GOOGLE_FORMS = {
     internship: 'https://forms.gle/XF1yLjmeXLrfEXQ17',
     membership: 'https://forms.gle/ybdFh7aQYLzUhxhx7',
-    partnership: 'https://forms.gle/rMBZdJmCGhMDJyfV6',
-    newsletter: 'https://forms.gle/zWNXBPFWbUxa6Y3E8'
+    partnership: 'https://forms.gle/rMBZdJmCGhMDJyfV6'
 };
 
 // Simple redirect function

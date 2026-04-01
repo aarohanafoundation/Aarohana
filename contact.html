@@ -230,45 +230,30 @@
           <h3>Quick Connect</h3>
 
           <div class="contact-cards">
-            <!-- Contact Form -->
-            <div class="contact-card" onclick="openGoogleForm()">
-              <div class="card-icon">
-                <i class="fas fa-edit"></i>
-              </div>
-              <div class="card-content">
-                <h4>Send a Message</h4>
-                <p>Share your thoughts, questions, or collaboration ideas through our contact form</p>
-                <div class="card-cta">
-                  <span>Fill Contact Form</span>
-                  <i class="fas fa-external-link-alt"></i>
-                </div>
-              </div>
-            </div>
-
             <!-- Phone -->
-            <div class="contact-card" onclick="location.href='tel:+918747996655'">
+            <a href="tel:+918747996655" class="contact-card" style="text-decoration: none; color: inherit; cursor: pointer;">
               <div class="card-icon">
                 <i class="fas fa-phone"></i>
               </div>
               <div class="card-content">
                 <h4>Call Us</h4>
-                <p>Speak directly with our team members for immediate assistance</p>
+                <p><strong>+91 87479 96655</strong><br>Speak directly with our team members for immediate assistance</p>
                 <div class="card-cta">
                   <span>Call Now</span>
                   <i class="fas fa-phone"></i>
                 </div>
               </div>
-            </div>
+            </a>
 
             <!-- Email -->
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aarohanafoundationbengaluru@gmail.com"
+            <a href="mailto:aarohanafoundationbengaluru@gmail.com"
               target="_blank" class="contact-card" style="text-decoration: none; color: inherit; cursor: pointer;">
               <div class="card-icon">
                 <i class="fas fa-envelope"></i>
               </div>
               <div class="card-content">
                 <h4>Email Us</h4>
-                <p>Send us an email for detailed inquiries or document submissions</p>
+                <p><strong>aarohanafoundationbengaluru@gmail.com</strong><br>Send us an email for detailed inquiries or document submissions</p>
                 <div class="card-cta">
                   <span>Send Email</span>
                   <i class="fas fa-paper-plane"></i>
@@ -294,11 +279,11 @@
 
           <!-- Quick Actions -->
           <div class="quick-actions">
-            <button class="btn btn-primary" onclick="openGoogleForm()">
-              <i class="fas fa-edit"></i> Contact Form
-            </button>
-            <button class="btn btn-secondary" onclick="location.href='tel:+918747996655'">
+            <button class="btn btn-primary" onclick="location.href='tel:+918747996655'">
               <i class="fas fa-phone"></i> Call Now
+            </button>
+            <button class="btn btn-secondary" onclick="location.href='mailto:aarohanafoundationbengaluru@gmail.com'">
+              <i class="fas fa-envelope"></i> Email Us
             </button>
           </div>
 
