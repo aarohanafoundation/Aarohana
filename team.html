@@ -154,14 +154,16 @@
       line-height: 1.5;
       display: -webkit-box;
       -webkit-line-clamp: 3;
+      line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow: scroll;
 
-      /* Hide scrollbar */
+      /* Hide scrollbar - webkit browsers */
+      -webkit-scrollbar-width: none;
+      /* Hide scrollbar - Firefox */
       scrollbar-width: none;
-      /* Firefox */
+      /* Hide scrollbar - IE and Edge */
       -ms-overflow-style: none;
-      /* Internet Explorer and Edge */
     }
 
     .member-bio::-webkit-scrollbar {
