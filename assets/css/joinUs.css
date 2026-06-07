@@ -139,10 +139,6 @@
       background: linear-gradient(to right, var(--white) 50%, var(--gray-100) 50%);
     }
 
-    .section-newsletter {
-      background: linear-gradient(to right, var(--gray-100) 50%, var(--white) 50%);
-    }
-
     .section-container {
       display: flex;
       align-items: center;

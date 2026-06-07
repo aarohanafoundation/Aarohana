@@ -197,7 +197,7 @@
             style="width: 93px;margin-right: 10px;"></div>
         <div class="logo-text">
           <h1>Aarohana Foundation</h1>
-          <span>Registered under Government of Karnataka</span>
+          <span>Registered Public Charitable Trust</span>
         </div>
       </a>
       <nav>
@@ -452,11 +452,8 @@
           </ul>
         </div>
 
-        <div class="footer-col footer-newsletter">
-          <h4>Newsletter</h4>
-          <p>Subscribe to our newsletter to stay updated with our activities and impact stories.</p>
-
-        <h4>Follow Us On Social Media</h4>
+        <div class="footer-col">
+          <h4>Follow Us On Social Media</h4>
           <p>Stay updated with our latest activities and initiatives</p>          <div class="social-links">
             <a href="https://www.facebook.com/share/179hHAopHQ/" class="social-link" title="Facebook">
               <i class="fab fa-facebook-f"></i>
@@ -474,10 +471,6 @@
               <i class="fas fa-envelope"></i>
             </a>
           </div>
-          <!-- <form class="newsletter-form" onsubmit="event.preventDefault(); submitNewsletter();">
-            <input type="email" class="newsletter-input" id="footer-email" placeholder="Your Email" required>
-            <button type="submit" class="btn btn-primary">Subscribe</button>
-          </form> -->
         </div>
       </div>
     </div>
@@ -691,16 +684,6 @@ function closeSuccessMessage() {
     }
 }
 
-// Simple footer newsletter
-function submitNewsletter() {
-    const email = document.getElementById('footer-email');
-    if (email && email.value) {
-        email.value = '';
-        showSuccessMessage();
-    } else {
-        alert('Please enter your email address');
-    }
-}
 
 // Header functionality for Join Us page
 document.addEventListener('DOMContentLoaded', function() {

@@ -35,6 +35,8 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
+      position: relative;
+      z-index: 1;
     }
 
     .section-title {
@@ -45,14 +47,16 @@
 
     .section-title h2 {
       font-size: 2.5rem;
-      color: #2d3748;
+      color: #1a202c;
       margin-bottom: 15px;
+      font-weight: 700;
     }
 
     .section-title h3 {
       font-size: 2rem;
-      color: #2d3748;
+      color: #1a202c;
       margin-bottom: 15px;
+      font-weight: 700;
     }
 
     .section-title p {
@@ -64,10 +68,38 @@
 
     /* Team Section Styles */
     .team-section {
-      padding: 40px 0 60px;
-      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-      border-radius: 12px;
+      padding: 60px 0 80px;
+      background: radial-gradient(circle at 10% 20%, rgba(255, 212, 40, 0.04) 0%, rgba(248, 249, 250, 1) 90%);
+      border-radius: 24px;
       margin: 30px 20px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    }
+
+    /* Ambient background glows for glassmorphism */
+    .team-section::before {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255, 212, 40, 0.12) 0%, rgba(255, 212, 40, 0) 70%);
+      top: -100px;
+      right: -100px;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .team-section::after {
+      content: '';
+      position: absolute;
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(44, 90, 160, 0.06) 0%, rgba(44, 90, 160, 0) 70%);
+      bottom: -150px;
+      left: -150px;
+      z-index: 0;
+      pointer-events: none;
     }
 
     .team-intro {
@@ -76,7 +108,7 @@
       margin: 0 auto 50px;
       font-size: 1.1rem;
       color: #4a5568;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     /* Executive Committee */
@@ -90,17 +122,21 @@
 
     .team-member {
       background: white;
-      border-radius: 12px;
+      border-radius: 16px;
       overflow: hidden;
-      transition: all 0.3s ease;
+      transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.4s ease;
       text-align: center;
       width: 280px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(0, 0, 0, 0.03);
+      display: flex;
+      flex-direction: column;
     }
 
     .team-member:hover {
       transform: translateY(-8px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.12), 0 1px 5px rgba(0, 0, 0, 0.03);
+      border-color: rgba(255, 212, 40, 0.3);
     }
 
     .member-image {
@@ -108,7 +144,7 @@
       height: 250px;
       position: relative;
       overflow: hidden;
-      background: #f1f5f9;
+      background: #f7fafc;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -118,120 +154,160 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: all 0.3s ease;
-      mix-blend-mode: multiply;
-      filter: contrast(1.1);
+      transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
     }
 
     .team-member:hover .member-image img {
-      transform: scale(1.05);
+      transform: scale(1.04);
     }
 
     .member-info {
-      padding: 20px;
+      padding: 24px;
       background: white;
-      border-radius: 0 0 12px 12px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
     }
 
     .member-name {
-      font-size: 14px;
+      font-size: 1.1rem;
       font-weight: 700;
       margin-bottom: 8px;
-      color: #2d3748;
+      color: #1a202c;
     }
 
     .member-role {
-      color: #4a6bdf;
-      font-weight: 600;
-      margin-bottom: 12px;
-      font-size: 0.95rem;
+      display: inline-block;
+      padding: 4px 12px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-radius: 50px;
+      margin-bottom: 16px;
+      align-self: center;
+    }
+
+    .role-president {
+      background: rgba(255, 212, 40, 0.15);
+      color: #b7791f;
+    }
+
+    .role-secretary {
+      background: rgba(44, 90, 160, 0.1);
+      color: #2C5AA0;
+    }
+
+    .role-executive {
+      background: rgba(74, 85, 104, 0.1);
+      color: #4a5568;
     }
 
     .member-bio {
-      color: #718096;
-      margin-bottom: 15px;
-      font-size: 10px;
-      line-height: 1.5;
+      color: #4a5568;
+      margin-bottom: 8px;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      text-align: center;
       display: -webkit-box;
       -webkit-line-clamp: 3;
       line-clamp: 3;
       -webkit-box-orient: vertical;
-      overflow: scroll;
-
-      /* Hide scrollbar - webkit browsers */
-      -webkit-scrollbar-width: none;
-      /* Hide scrollbar - Firefox */
-      scrollbar-width: none;
-      /* Hide scrollbar - IE and Edge */
-      -ms-overflow-style: none;
+      overflow: hidden;
+      transition: all 0.3s ease;
     }
 
-    .member-bio::-webkit-scrollbar {
-      display: none;
-      /* Chrome, Safari, and Opera */
+    .member-bio.expanded {
+      display: block;
+      overflow: visible;
+      -webkit-line-clamp: unset;
+      line-clamp: unset;
     }
 
+    .read-more-btn {
+      color: #2C5AA0;
+      font-weight: 600;
+      font-size: 0.8rem;
+      cursor: pointer;
+      display: inline-block;
+      margin-bottom: 15px;
+      align-self: center;
+      transition: color 0.2s ease;
+    }
+
+    .read-more-btn:hover {
+      color: #FFD428;
+      text-decoration: underline;
+    }
 
     .member-social {
       display: flex;
       justify-content: center;
-      gap: 10px;
+      gap: 12px;
+      margin-top: auto;
     }
 
     .social-link {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 36px;
-      height: 36px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
-      background: #edf2f7;
-      color: #4a5568;
-      transition: all 0.3s ease;
+      background: #f7fafc;
+      border: 1px solid #edf2f7;
+      color: #718096;
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
       text-decoration: none;
     }
 
     .social-link:hover {
-      background: #4a6bdf;
-      color: white;
       transform: translateY(-3px);
+    }
+
+    .social-link.linkedin:hover {
+      background: #0077b5;
+      color: white;
+      border-color: #0077b5;
+    }
+
+    .social-link.instagram:hover {
+      background: #e1306c;
+      color: white;
+      border-color: #e1306c;
+    }
+
+    .social-link.envelope:hover {
+      background: #E5BF24;
+      color: white;
+      border-color: #E5BF24;
     }
 
     /* Team Category Headings */
     .team-category {
       text-align: center;
-      margin: 50px 0 30px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid #363632bf;
+      margin: 60px 0 40px;
+      position: relative;
     }
 
     .team-category h4 {
-      font-size: 1.8rem;
-      color: #363632bf;
-      margin: 0;
+      font-size: 1.1rem;
+      color: #1a202c;
+      display: inline-block;
+      padding: 8px 24px;
+      background: rgba(255, 212, 40, 0.08);
+      border-radius: 50px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255, 212, 40, 0.25);
     }
 
     /* Team with Horizontal Members */
     .team-with-members {
       margin-bottom: 60px;
-    }
-
-    .team-leader {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 40px;
-    }
-
-    /* FIX: Team leader should have same dimensions as team members, not executives */
-    .team-leader .team-member {
-      width: 220px;
-      /* Same as team members */
-    }
-
-    .team-leader .member-image {
-      height: 200px;
-      /* Same as team members */
+      position: relative;
+      z-index: 1;
     }
 
     .team-members-horizontal {
@@ -243,10 +319,56 @@
 
     .team-members-horizontal .team-member {
       width: 220px;
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.01);
+      border: 1px solid rgba(0, 0, 0, 0.03);
+      transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.4s ease;
+    }
+
+    .team-members-horizontal .team-member:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+      border-color: rgba(255, 212, 40, 0.2);
     }
 
     .team-members-horizontal .member-image {
+      width: 100%;
       height: 200px;
+      position: relative;
+      overflow: hidden;
+      background: #f7fafc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .team-members-horizontal .member-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .team-members-horizontal .team-member:hover .member-image img {
+      transform: scale(1.04);
+    }
+
+    .team-members-horizontal .member-info {
+      padding: 15px;
+      background: white;
+      text-align: center;
+    }
+
+    .team-members-horizontal .member-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #1a202c;
+      margin-bottom: 0;
+      line-height: 1.4;
     }
   </style>
 </head>
@@ -259,7 +381,7 @@
             style="width: 93px;margin-right: 10px;"></div>
         <div class="logo-text">
           <h1>Aarohana Foundation</h1>
-          <span>Registered under Government of Karnataka</span>
+          <span>Registered Public Charitable Trust</span>
         </div>
       </a>
       <nav>
@@ -276,11 +398,7 @@
           </li>
 
           <li class="dropdown">
-            <a href="#team" class="dropdown-toggle">Our Team <i class="fas fa-chevron-down"></i></a>
-            <ul class="dropdown-menu">
-              <li><a href="#executive">Executive Committee</a></li>
-              <li><a href="#members">Our Members</a></li>
-            </ul>
+            <a href="#team" class="dropdown-toggle">Our Team</a>
           </li>
 
           <li><a href="project.html">Projects</a></li>
@@ -292,7 +410,6 @@
               <li><a href="join.html#internship">Internship</a></li>
               <li><a href="join.html#membership">Membership Opportunity</a></li>
               <li><a href="join.html#partnership">Partnership</a></li>
-              <li><a href="join.html#newsletter">Newsletter</a></li>
             </ul>
           </li>
           <li><a href="donate.html" class="nav-cta">Donate Now</a></li>
@@ -316,7 +433,7 @@
         </div>
 
         <div class="section-title">
-          <h3>Executive Committee</h3>
+          <h3>Managing Committee</h3>
           <p>The leadership team guiding our organization</p>
         </div>
 
@@ -327,62 +444,114 @@
             </div>
             <div class="member-info">
               <h3 class="member-name">Mohammed Rayeed Zain C A</h3>
-              <div class="member-role">Founder & President</div>
+              <div class="member-role role-president">President</div>
               <p class="member-bio">Meet Mohammed Rayeed Zain, A graduate from St. Joseph's College of Commerce. His
                 mission is simple yet powerful, to bring people together and extend a helping hand to those in need. In
                 these times, when the threads of community often feel frayed, he aims to weave them back together
-                through
-                acts of kindness, support, and collaboration.</p>
+                through acts of kindness, support, and collaboration.</p>
+              <span class="read-more-btn" onclick="toggleBio(this)">Read More</span>
               <div class="member-social">
-                <a href="https://linkedin.com/in/mohammed-rayeed-zain-103858259" target="_blank" class="social-link"><i
+                <a href="https://linkedin.com/in/mohammed-rayeed-zain-103858259" target="_blank" class="social-link linkedin"><i
                     class="fab fa-linkedin-in"></i></a>
                 <a href="https://www.instagram.com/__.zainofficial.__?igsh=MWg0eWZpenh4MXpoMQ%3D%3D&utm_source=qr"
-                  class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                  class="social-link instagram" target="_blank"><i class="fab fa-instagram"></i></a>
                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mohammedrayeed.3182@gmail.com" target="_blank"
-                  class="social-link">
+                  class="social-link envelope">
                   <i class="fas fa-envelope"></i>
                 </a>
               </div>
             </div>
           </div>
-
           <div class="team-member">
             <div class="member-image">
-              <img src="assets/images/team/Andrew Joannes.jpg" alt="Andrew Joannes">
-
+              <img src="assets/images/team/Poonam.PNG" alt="N Poonam Jain">
             </div>
             <div class="member-info">
-              <h3 class="member-name">Andrew Joannes</h3>
-              <div class="member-role">Board Member</div>
-              <p class="member-bio">Meet Andrew Joannes, A passionate Photographer, Videographer, Editor, and Graphic
-                Designer. With an eye for detail and a love for storytelling, he transforms ideas into visually
-                compelling
-                content that captivates and engages. He’s the kind of creative who shows up on time because inspiration
-                waits for no one, and neither do deadlines.</p>
+              <h3 class="member-name">N Poonam Jain</h3>
+              <div class="member-role role-secretary">Joint Secretary</div>
+              <p class="member-bio">Meet N. Poonam Jain, a graduate from St. Joseph's College of Commerce. Driven by
+                compassion and a strong sense of responsibility towards society,
+                she believes in bringing people together to create meaningful change. Through kindness, support, and
+                collective effort, she hopes to build a community where no one feels unheard or unsupported.</p>
+              <span class="read-more-btn" onclick="toggleBio(this)">Read More</span>
               <div class="member-social">
-                <a href="https://in.linkedin.com/in/andrew-joannes-a82a9a220" target="_blank" class="social-link"><i
+                <a href="https://linkedin.com/in/n-poonam-jain-103858259" target="_blank" class="social-link linkedin"><i
                     class="fab fa-linkedin-in"></i></a>
-                <a href="https://www.instagram.com/andrew_joannes/
-" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=andrewjoannes1234@gmail.com" target="_blank"
-                  class="social-link"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.instagram.com/n.poonam.jain?igsh=MWg0eWZpenh4MXpoMQ%3D%3D&utm_source=qr"
+                  class="social-link instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=n.poonam.jain@gmail.com" target="_blank"
+                  class="social-link envelope">
+                  <i class="fas fa-envelope"></i>
+                </a>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div id="members">
-        <div class="section-title">
-          <h3>Our Members</h3>
+          <div class="team-member">
+            <div class="member-image">
+              <img src="assets/images/team/Anjali Pareek.jpeg" alt="Anjali Pareek">
+            </div>
+            <div class="member-info">
+              <h3 class="member-name">Anjali Pareek</h3>
+              <div class="member-role role-executive">Executive member</div>
+              <p class="member-bio">Having recently completed grade 12, Anjali Pareek is an aspiring lawyer deeply
+                interested in community work and youth led initiatives that create a real impact. She’s an avid
+                reader who enjoys understanding people, ideas, and different perspectives, something that naturally
+                shaped her interest in social work. Driven, creative, and very people oriented, she aims to contribute
+                to spaces that value empathy, action, and meaningful change.</p>
+              <span class="read-more-btn" onclick="toggleBio(this)">Read More</span>
+            </div>
+          </div>
         </div>
 
         <div class="team-with-members">
           <div class="team-category">
-            <h4>Human Resource Team</h4>
+            <h4>Core Team</h4>
           </div>
 
           <div class="team-members-horizontal">
+
+            <div class="team-member">
+              <div class="member-image">
+                <a>
+                  <img src="assets\images\team\arain1.jpeg" alt="Mohammad Arain Khan">
+                </a>
+              </div>
+              <div class="member-info">
+                <h3 class="member-name">Mohammed Arain Khan</h3>
+              </div>
+            </div>
+
+            <div class="team-member">
+              <div class="member-image">
+                <a>
+                  <img src="assets/images/team/Sanjana.jpg" alt="Sanjana S">
+                </a>
+              </div>
+              <div class="member-info">
+                <h3 class="member-name">Sanjana S</h3>
+              </div>
+            </div>
+
+            <div class="team-member">
+              <div class="member-image">
+                <a>
+                  <img src="assets\images\team\Dikshitha Sharma.jpeg" alt="Dikshitha Sharma">
+                </a>
+              </div>
+              <div class="member-info">
+                <h3 class="member-name">Dikshitha Sharma</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-with-members">
+          <div class="team-category">
+            <h4>Human Resources Team</h4>
+          </div>
+
+          <div class="team-members-horizontal">
+
             <div class="team-member">
               <div class="member-image">
                 <a>
@@ -406,45 +575,13 @@
                 <h3 class="member-name">Sai Sinchana</h3>
               </div>
             </div>
-
-            <div class="team-member">
-              <div class="member-image">
-                <a>
-                  <img src="assets/images/team/Sanjana.jpg" alt="Sanjana S">
-                </a>
-              </div>
-              <div class="member-info">
-                <h3 class="member-name">Sanjana S</h3>
-              </div>
-            </div>
           </div>
-          </div>
+        </div>
 
 
         <div class="team-with-members">
           <div class="team-category">
-            <h4>Youth Development Team</h4>
-          </div>
-
-          <div class="team-members-horizontal">
-            <div class="team-member">
-              <div class="member-image">
-                <a>
-                  <img src="assets/images/team/arian.jpg" alt="Arain Khan">
-                </a>
-              </div>
-              <div class="member-info">
-                <h3 class="member-name">Arain Khan</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="team-with-members">
-          <div class="team-category">
-            <h4>Web & Tech Team</h4>
+            <h4>Public Relations Team</h4>
           </div>
 
           <div class="team-members-horizontal">
@@ -500,9 +637,7 @@
           </ul>
         </div>
 
-        <div class="footer-col footer-newsletter">
-          <h4>Newsletter</h4>
-          <p>Subscribe to our newsletter to stay updated with our activities and impact stories.</p>
+        <div class="footer-col">
           <h4>Follow Us On Social Media</h4>
           <p>Stay updated with our latest activities and initiatives</p>
           <div>
@@ -533,6 +668,17 @@
   </footer>
 
   <script>
+    function toggleBio(btn) {
+      const bio = btn.previousElementSibling;
+      if (bio.classList.contains('expanded')) {
+        bio.classList.remove('expanded');
+        btn.textContent = 'Read More';
+      } else {
+        bio.classList.add('expanded');
+        btn.textContent = 'Read Less';
+      }
+    }
+
     // Handle navigation from dropdown menu
     document.addEventListener('DOMContentLoaded', function () {
       // Check if URL has hash and scroll to section
