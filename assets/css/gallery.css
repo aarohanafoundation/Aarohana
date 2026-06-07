@@ -1,0 +1,33 @@
+/* Gallery Section Styles */
+.gallery-section { padding: 100px 0; background: var(--white); }
+.gallery-filter { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-bottom: 40px; }
+.filter-btn { padding: 10px 20px; background: var(--gray-100); border: none; border-radius: 50px; font-family: 'Inter', sans-serif; font-weight: 500; cursor: pointer; transition: var(--transition); }
+.filter-btn:hover, .filter-btn.active { background: var(--primary); color: var(--secondary); }
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; margin-bottom: 50px; }
+.gallery-item { position: relative; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-md); transition: var(--transition); height: 280px; }
+.gallery-item:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+.gallery-img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+.gallery-item:hover .gallery-img { transform: scale(1.05); }
+.gallery-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 20px; color: var(--white); opacity: 0; transition: var(--transition); }
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+.gallery-title { font-weight: 600; margin-bottom: 8px; font-size: 1.1rem;color:white }
+.gallery-category { font-size: 0.85rem; opacity: 0.9; display: inline-block; background: var(--primary); color: var(--secondary); padding: 4px 10px; border-radius: 4px; font-weight: 500; }
+
+.gallery-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1100; overflow: auto; opacity: 0; transition: opacity 0.3s ease; }
+.gallery-modal.active { display: block; opacity: 1; }
+.modal-content { position: relative; max-width: 900px; margin: 60px auto; background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); }
+.modal-img { width: 100%; max-height: 70vh; object-fit: contain; }
+.modal-body { padding: 25px; }
+.modal-title { font-size: 1.5rem; margin-bottom: 10px; }
+.modal-description { color: var(--text-light); margin-bottom: 20px; }
+.modal-close { position: absolute; top: 15px; right: 15px; background: var(--white); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.2rem; transition: var(--transition); }
+.modal-close:hover { background: var(--primary); }
+
+@media (max-width: 768px) {
+  .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; }
+  .gallery-item { height: 220px; }
+}
+@media (max-width: 576px) {
+  .gallery-grid { grid-template-columns: 1fr; }
+  .filter-btn { padding: 8px 16px; font-size: 0.9rem; }
+}
